@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Каталог | Lazarus Taxa</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">LAZARUS TAXA</div>
+
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="catalog.html">Каталог</a>
+    <a href="#">Статьи</a>
+  </nav>
+</header>
+
+<section class="catalog-page">
+
+  <h1>Каталог видов</h1>
+
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Поиск животных..."
+  />
+
+  <div class="filters">
+
+    <button class="filter-btn active" data-category="all">
+      Все
+    </button>
+
+    <button class="filter-btn" data-category="birds">
+      Птицы
+    </button>
+
+    <button class="filter-btn" data-category="mammals">
+      Млекопитающие
+    </button>
+
+    <button class="filter-btn" data-category="fish">
+      Рыбы
+    </button>
+
+    <button class="filter-btn" data-category="amphibians">
+      Амфибии
+    </button>
+
+  </div>
+
+  <div class="catalog-container" id="catalogContainer"></div>
+
+</section>
+
+<script src="animals.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
