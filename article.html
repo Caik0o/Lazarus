@@ -1,32 +1,87 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Статья</title>
+  <title>Статьи</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header class="header">
-  <div class="logo">LAZARUS TAXA</div>
+
+  <div class="logo">
+    Lazarus Taxa
+  </div>
 
   <nav>
     <a href="index.html">Главная</a>
     <a href="catalog.html">Каталог</a>
+    <a href="articles.html">Статьи</a>
   </nav>
+
 </header>
 
-<section class="article-page">
+<section class="catalog-page">
 
-  <div class="article-card" id="articleContainer"></div>
+  <h1>Научные статьи</h1>
+
+  <div class="articles-grid">
+
+    <a href="article.html?id=1" class="article-preview">
+
+      <img src="images/takahe.jpg">
+
+      <div class="article-preview-content">
+
+        <h3>Возвращение такахе</h3>
+
+        <p>
+          Как птица, считавшаяся исчезнувшей, снова появилась в Новой Зеландии.
+        </p>
+
+      </div>
+
+    </a>
+
+    <a href="article.html?id=2" class="article-preview">
+
+      <img src="images/peccary.jpg">
+
+      <div class="article-preview-content">
+
+        <h3>Чакский пекари</h3>
+
+        <p>
+          История животного, которое ученые знали лишь по ископаемым.
+        </p>
+
+      </div>
+
+    </a>
+
+    <a href="article.html?id=3" class="article-preview">
+
+      <img src="images/fish.jpg">
+
+      <div class="article-preview-content">
+
+        <h3>Латимерия</h3>
+
+        <p>
+          Древняя рыба, пережившая миллионы лет эволюции.
+        </p>
+
+      </div>
+
+    </a>
+
+  </div>
 
 </section>
-
-<script src="animals.js"></script>
-<script src="script.js"></script>
 
 </body>
 </html>
