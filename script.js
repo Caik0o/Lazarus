@@ -31,7 +31,9 @@ function renderAnimals(data) {
   });
 }
 
-renderAnimals(animals);
+if (catalogContainer) {
+  renderAnimals(animals);
+}
 
 const buttons = document.querySelectorAll(".filter-btn");
 
@@ -88,7 +90,9 @@ function renderArticle() {
 
   if (!animal) {
 
-    articleContainer.innerHTML = "<h1>Статья не найдена</h1>";
+    articleContainer.innerHTML = `
+      <h1>Статья не найдена</h1>
+    `;
 
     return;
   }
@@ -99,13 +103,17 @@ function renderArticle() {
 
       <img class="article-image" src="${animal.image}">
 
-      <h1>${animal.name}</h1>
+      <div class="article-text">
 
-      <h2>${animal.latin}</h2>
+        <h1>${animal.name}</h1>
 
-      <p>
-        ${animal.description}
-      </p>
+        <h2>${animal.latin}</h2>
+
+        <p>
+          ${animal.description}
+        </p>
+
+      </div>
 
     </div>
 
