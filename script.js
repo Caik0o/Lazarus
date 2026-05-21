@@ -1,5 +1,8 @@
 const catalogContainer = document.getElementById("catalogContainer");
 const articleContainer = document.getElementById("articleContainer");
+const articlesContainer = document.getElementById("articlesContainer");
+
+/* КАТАЛОГ ЖИВОТНЫХ */
 
 function renderAnimals(data) {
 
@@ -13,7 +16,7 @@ function renderAnimals(data) {
 
       <a class="animal-card" href="article.html?id=${animal.id}">
 
-        <img src="${animal.image}" alt="${animal.name}">
+        <img src="${animal.image}">
 
         <div class="animal-info">
 
@@ -31,9 +34,11 @@ function renderAnimals(data) {
   });
 }
 
-if (catalogContainer) {
+if (catalogContainer && typeof animals !== "undefined") {
   renderAnimals(animals);
 }
+
+/* ФИЛЬТРЫ */
 
 const buttons = document.querySelectorAll(".filter-btn");
 
@@ -62,9 +67,11 @@ buttons.forEach((button) => {
   });
 });
 
+/* ПОИСК */
+
 const searchInput = document.getElementById("searchInput");
 
-if (searchInput) {
+if (searchInput && typeof animals !== "undefined") {
 
   searchInput.addEventListener("input", (e) => {
 
@@ -78,9 +85,11 @@ if (searchInput) {
   });
 }
 
-function renderArticle() {
+/* СТРАНИЦЫ ЖИВОТНЫХ */
 
-  if (!articleContainer) return;
+function renderAnimalArticle() {
+
+  if (!articleContainer || typeof animals === "undefined") return;
 
   const params = new URLSearchParams(window.location.search);
 
@@ -88,14 +97,7 @@ function renderArticle() {
 
   const animal = animals.find((item) => item.id === id);
 
-  if (!animal) {
-
-    articleContainer.innerHTML = `
-      <h1>Статья не найдена</h1>
-    `;
-
-    return;
-  }
+  if (!animal) return;
 
   articleContainer.innerHTML = `
 
@@ -109,9 +111,7 @@ function renderArticle() {
 
         <h2>${animal.latin}</h2>
 
-        <p>
-          ${animal.description}
-        </p>
+        <p>${animal.description}</p>
 
       </div>
 
@@ -120,4 +120,34 @@ function renderArticle() {
   `;
 }
 
-renderArticle();
+renderAnimalArticle();
+
+/* СПИСОК СТАТЕЙ */
+
+function renderArticles() {
+
+  if (!articlesContainer || typeof articles === "undefined") return;
+
+  articles.forEach((article) => {
+
+    articlesContainer.innerHTML += `
+
+      <a href="page.html?id=${article.id}" class="article-preview">
+
+        <img src="${article.image}">
+
+        <div class="article-preview-content">
+
+          <h3>${article.title}</h3>
+
+          <p>${article.short}</p>
+
+        </div>
+
+      </a>
+
+    `;
+  });
+}
+
+renderArticles();
